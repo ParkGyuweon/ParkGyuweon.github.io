@@ -1,0 +1,16 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg-canvas);color:var(--text-primary);font:var(--type-body);letter-spacing:var(--tracking-normal);word-break:keep-all;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,h5,h6,p,figure,blockquote{margin:0}
+h1,h2,h3,h4{letter-spacing:var(--tracking-heading);text-wrap:balance}
+p{text-wrap:pretty}
+a{color:var(--text-accent);text-decoration:none;text-underline-offset:3px;transition:color var(--dur-fast) var(--ease-standard)}
+a:hover{color:var(--accent-solid-hover);text-decoration:underline}
+code,kbd,pre,samp{font-family:var(--font-mono);font-size:.92em}
+:focus-visible{outline:none;box-shadow:var(--shadow-focus);border-radius:var(--radius-xs)}
+::selection{background:var(--accent-soft);color:var(--text-primary)}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--ink-750);border-radius:var(--radius-pill);border:3px solid transparent;background-clip:content-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ds-fade-up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes ds-pulse{0%,100%{opacity:1}50%{opacity:.45}}

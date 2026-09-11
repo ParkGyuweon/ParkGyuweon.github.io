@@ -1,0 +1,6 @@
+/* JetBrains Mono — 이 파일은 디자인 시스템 tokens/fonts.css에서
+   Pretendard Variable 단일 파일 @font-face만 제외한 사본입니다.
+   Pretendard은 dynamic-subset CSS로 불러오며, 그 쪽이 단일 HTML로 묶입니다. */
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.19/files/jetbrains-mono-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.19/files/jetbrains-mono-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:swap;src:url("https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.19/files/jetbrains-mono-latin-700-normal.woff2") format("woff2")}
