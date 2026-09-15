@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--acc:#FE0041;--ink:#111316;--ink-2:#3F444B;--ink-3:#7A8089;--surf:#F4F4F5;--line:#E4E4E7;--line-2:#CFD1D5;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;color:var(--ink)}
+body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+p,li,dd,dt,td,th{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+a{color:var(--ink);text-decoration:none}
+a:hover{text-decoration:underline}
+doc-page:not(:defined){visibility:hidden}
+ul{list-style:none;padding-left:0 !important;margin-left:0}
+ul>li{position:relative;padding-left:4.5mm}
+ul>li::before{content:"";position:absolute;left:0;top:.5em;width:0;height:0;border-left:1.5mm solid var(--acc);border-top:1mm solid transparent;border-bottom:1mm solid transparent}
+.page{padding:11mm 13mm;background:#fff;display:flex;flex-direction:column}
+</style>
+</helmet>
+
+<x-import component-from-global-scope="doc-page" from="./doc-page.js" size="a4" hint-size="100%,100%">
+
+<section class="page">
+  <header style="display:flex;align-items:flex-end;justify-content:space-between;gap:12mm;padding-bottom:8mm;border-bottom:2px solid var(--ink)">
+    <div>
+      <h1 style="margin:0;font-size:26.5pt;font-weight:700;letter-spacing:-.03em;line-height:1.15">박규원<span style="font-size:15.5pt;font-weight:500;color:var(--ink-3);margin-left:8px;letter-spacing:.02em">PARK GYUWEON</span></h1>
+      <div style="margin-top:3mm;font-family:'IBM Plex Mono',monospace;font-size:12pt;letter-spacing:.12em;color:var(--acc)">DATA ANALYST</div>
+    </div>
+    <dl style="margin:0;text-align:right;font-size:9.5pt;line-height:1.75;color:var(--ink-2);display:grid;grid-template-columns:auto auto;gap:0 8px;justify-content:end">
+      <dt style="font-weight:600;letter-spacing:.02em;color:var(--ink-3)">EMAIL</dt><dd style="margin:0">rbdnjs7034@naver.com</dd>
+      <dt style="font-weight:600;letter-spacing:.02em;color:var(--ink-3)">PHONE</dt><dd style="margin:0">010-2235-3134</dd>
+      <dt style="font-weight:600;letter-spacing:.02em;color:var(--ink-3)">GITHUB</dt><dd style="margin:0">github.com/ParkGyuweon</dd>
+      <dt style="font-weight:600;letter-spacing:.02em;color:var(--ink-3)">PORTFOLIO</dt><dd style="margin:0">parkgyuweon.github.io</dd>
+    </dl>
+  </header>
+
+  <p style="margin:8mm 0 0;font-size:11.5pt;line-height:1.8;color:var(--ink-2);max-width:64ch">리뷰, 이미지, 사용자 동작 데이터를 다루며 데이터 범위와 평가 조건을 정리해 왔습니다. 지표가 흔들리면 입력 데이터와 평가 절차를 먼저 확인했고, AI 모델의 출력은 후처리 오류가 남지 않도록 <span style="white-space:nowrap">추론 구조를 조정했습니다.</span></p>
+
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:8mm;margin-top:9mm;flex:1">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">PROJECT 01</div>
+      <div style="font-size:13.5pt;font-weight:700;margin-top:2mm;letter-spacing:-.02em">HWABUN</div>
+      <p style="margin:2mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-3)">스킨케어 추천 ·<br>리뷰 데이터</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">MY ROLE</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">추천 데이터 전처리<br>상품·사용자 feature 설계<br>평가용 행동 로그 생성<br>offline evaluation 설계</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">STACK</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">Python · pandas<br>추천 평가 설계</p>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <h2 style="margin:0;font-size:16pt;font-weight:700;letter-spacing:-.025em;line-height:1.35">추천 결과를 비교하기 전에 데이터 범위부터 정리했습니다.</h2>
+
+      <div style="margin-top:4mm">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">문제</div>
+        <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">원본 리뷰에는 사용자 속성이 비어 있는 행이 있었고, 피부톤 표기는 14종으로 나뉘어 있었습니다. 이대로 집계하면 같은 사용자군이 여러 값으로 나뉘어 <span style="white-space:nowrap">평가될 수 있었습니다.</span></p>
+      </div>
+
+      <div style="margin-top:3mm">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">데이터 정제 기준</div>
+        <ul style="margin:1.5mm 0 0;padding-left:4mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+          <li>사용자 속성 4개가 모두 채워진 Sephora 리뷰 844,865건과 스킨케어 상품 200개로 <span style="white-space:nowrap">분석 범위를 한정했습니다.</span></li>
+          <li>피부톤 14종을 5개 버킷으로 정규화해 집계 단위를 통일했습니다.</li>
+        </ul>
+      </div>
+
+      <div style="margin-top:3mm">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">feature 분리 설계</div>
+        <ul style="margin:1.5mm 0 0;padding-left:4mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+          <li>성분, 피부 고민, 카테고리, 브랜드를 담은 <strong style="color:var(--ink)">148차원 상품 벡터</strong>와 <strong style="color:var(--ink)">사용자 속성 친화도 테이블 4,000행</strong>을 분리했습니다. 상품 유사도와 사용자별 선호도를 다른 기준으로 <span style="white-space:nowrap">계산하기 위해서입니다.</span></li>
+        </ul>
+      </div>
+
+      <div style="margin-top:3mm">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">holdout 검증 구조</div>
+        <ul style="margin:1.5mm 0 0;padding-left:4mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+          <li>holdout_a와 holdout_b를 각 2,000명으로 분리했습니다. holdout_a는 모델 선택에, holdout_b는 선택한 모델 확인에 사용했습니다.</li>
+          <li>평가용 행동 로그에서는 추천 노출 결과와 hidden preference를 분리했습니다. 추천 결과가 다시 정답으로 <span style="white-space:nowrap">사용되지 않도록 하기 위해서입니다.</span></li>
+        </ul>
+      </div>
+
+      <div style="margin-top:7mm;border:1px solid #F7C9D5;border-radius:2mm;padding:3.5mm 4.5mm;background:#FFF6F8">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">결과</div>
+        <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">이 기준으로 평가한 팀의 CBF + CF + LTR 결합 모델은 <strong style="color:var(--ink)">Recall@10 42.15%, 43.15%</strong>를 기록했습니다. 모델 결과는 팀 성과이며, 데이터 범위와 검증 구조 <span style="white-space:nowrap">설계를 담당했습니다.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:auto;padding-top:5mm;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:9.75pt;color:var(--ink-3)">
+    <span>PARK GYUWEON · DATA ANALYST</span>
+    <span style="justify-self:center;color:var(--ink);font-weight:600">1 / 3</span>
+    <span></span>
+  </div>
+</section>
+
+<section class="page">
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:7mm;margin-bottom:13mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">PROJECT 02</div>
+      <div style="font-size:13.5pt;font-weight:700;margin-top:2mm;letter-spacing:-.02em">AI Challenge</div>
+      <p style="margin:2mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-3)">VLM 파인튜닝 ·<br>추론 출력 검증</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">MY ROLE</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">VLM 파인튜닝<br>추론 파이프라인 구현</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">STACK</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">InternVL2-8B<br>QLoRA · PyTorch</p>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <h2 style="margin:0;font-size:16pt;font-weight:700;letter-spacing:-.025em;line-height:1.35">생성 결과를 후처리하지 않도록 추론 방식을 바꿨습니다.</h2>
+      <div style="margin-top:3mm">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">문제</div>
+        <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">모델이 생성한 문장에서 답을 다시 추출하는 방식은 문장 형식에 따라 결과가 달라질 수 있었습니다. 정답이 맞아도 파싱이 실패하면 <span style="white-space:nowrap">평가 결과가 흔들렸습니다.</span></p>
+      </div>
+      <div style="margin-top:3mm">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">한 일</div>
+        <ul style="margin:1.5mm 0 0;padding-left:4mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+          <li>InternVL2-8B를 4-bit QLoRA로 학습하고, 정답 토큰에만 loss가 계산되도록 <span style="white-space:nowrap">label masking을 구성했습니다.</span></li>
+          <li>생성 문장에서 답을 추출하는 대신 <strong style="color:var(--ink)">a/b/c/d 토큰의 logits를 직접 비교</strong>하도록 추론 방식을 바꿨습니다. 결과가 네 선택지 중 하나로 <span style="white-space:nowrap">결정되도록 제한했습니다.</span></li>
+        </ul>
+      </div>
+      <div style="margin-top:3mm;border:1px solid #F7C9D5;border-radius:2mm;padding:3.5mm 4.5mm;background:#FFF6F8">
+        <div style="font-size:10.5pt;font-weight:700;letter-spacing:-.01em;color:var(--acc)">결과</div>
+        <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)"><strong style="color:var(--ink)">parsing error를 0건</strong>으로 줄이고 추론 속도를 <strong style="color:var(--ink)">약 2배</strong> <span style="white-space:nowrap">개선했습니다.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:7mm;margin-bottom:13mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">PROJECT 03</div>
+      <div style="font-size:13.5pt;font-weight:700;margin-top:2mm;letter-spacing:-.02em">빵긋</div>
+      <p style="margin:2mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-3)">아동 동작 인식 게임</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">MY ROLE</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">프론트엔드 · 동작 인식<br>게임 QA</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">STACK</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">React · TypeScript<br>MediaPipe</p>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <h2 style="margin:0;font-size:16pt;font-weight:700;letter-spacing:-.025em;line-height:1.35">실패한 동작을 기준으로 판정 범위를 조정했습니다.</h2>
+      <ul style="margin:2.5mm 0 0;padding-left:4mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+        <li>손 중심 좌표만 사용하는 방식이 아동의 큰 동작을 놓치는 문제를 확인했습니다. 손의 가장자리와 팔 영역까지 활용하도록 판정 조건을 조정하고, 같은 조건에서 <span style="white-space:nowrap">반복 QA를 진행했습니다.</span></li>
+        <li>개발 영상 기준 인식 성공률을 <strong style="color:var(--ink)">약 10%에서 90%까지</strong> <span style="white-space:nowrap">높였습니다.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:8mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">PROJECT 04</div>
+      <div style="font-size:10.4pt;font-weight:700;margin-top:2mm;letter-spacing:-.03em;white-space:nowrap">논문 수집 Agent</div>
+      <p style="margin:2mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-3)">연세대학교<br>생물정보학 연구실<br>학부연구생</p>
+      <div style="margin-top:10mm;font-family:'IBM Plex Mono',monospace;font-size:11.5pt;font-weight:700;letter-spacing:.08em;color:var(--ink);border-bottom:1px solid var(--line-2);padding-bottom:1mm">STACK</div>
+      <p style="margin:1.5mm 0 0;font-size:10.5pt;line-height:1.5;color:var(--ink-2)">LangChain · Gemini<br>arXiv API</p>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <h2 style="margin:0;font-size:16pt;font-weight:700;letter-spacing:-.025em;line-height:1.35">반복 수집 문제를 줄이기 위해 LLM 응답 형식과 이력 파일을 함께 관리했습니다.</h2>
+      <ul style="margin:2.5mm 0 0;padding-left:4mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+        <li>AI Scientist와 biomedical AI agent 관련 논문·코드를 분석했습니다.</li>
+        <li>LangChain, Gemini, arXiv API로 논문 수집 Agent를 구현했고, 관련성 판정은 <strong style="color:var(--ink)">YES/NO 형식</strong>으로 제한했습니다.</li>
+        <li>수집한 논문 ID는 history 파일에 저장해 다음 검색에서 <span style="white-space:nowrap">제외했습니다.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:auto;padding-top:5mm;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:9.75pt;color:var(--ink-3)">
+    <span>PARK GYUWEON · DATA ANALYST</span>
+    <span style="justify-self:center;color:var(--ink);font-weight:600">2 / 3</span>
+    <span></span>
+  </div>
+</section>
+
+<section class="page">
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:8mm;margin-bottom:12mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">SKILLS</div>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm;display:flex;flex-direction:column;gap:8mm">
+      <div>
+        <div style="font-size:12.5pt;font-weight:700;margin-bottom:2.5mm">Data &amp; SQL</div>
+        <p style="margin:0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">사용자 속성 4개가 모두 채워진 리뷰 844,865건을 기준으로 분석 범위를 정하고, 148차원 상품 벡터와 4,000행 사용자 속성 친화도 테이블을 분리했습니다. holdout을 두 개로 나눠 모델 선택과 최종 확인을 구분했습니다. <strong style="color:var(--ink)">SQLD</strong>를 보유하고 있으며, 관계형 데이터 모델과 기본 조인·집계 쿼리를 읽고 <span style="white-space:nowrap">작성할 수 있습니다.</span></p>
+      </div>
+      <div>
+        <div style="font-size:12.5pt;font-weight:700;margin-bottom:1.5mm">AI &amp; Automation</div>
+        <p style="margin:0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">InternVL2-8B를 4-bit QLoRA로 파인튜닝하고 label masking과 logits 비교 방식으로 추론 파이프라인을 구성했습니다. LangChain, Gemini, arXiv API로 논문 수집 Agent를 구현하며 응답 형식과 history 파일을 <span style="white-space:nowrap">관리했습니다.</span></p>
+      </div>
+      <div>
+        <div style="font-size:12.5pt;font-weight:700;margin-bottom:1.5mm">Product Engineering</div>
+        <p style="margin:0;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">React·TypeScript로 프론트엔드를 구현했고, MediaPipe 동작 인식의 판정 조건을 수정했습니다. 실제 플레이 영상을 반복 확인하며 실패하는 조건을 찾고 <span style="white-space:nowrap">QA 기준을 조정했습니다.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:8mm;margin-bottom:12mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">AWARDS</div>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <ul style="margin:0;padding-left:4mm;font-size:12pt;line-height:1.9;color:var(--ink-2)">
+        <li>SSAFY 공통 프로젝트 우수상</li>
+        <li>SSAFY 1학기 성적 우수상</li>
+        <li>연세대학교 우수상 3회</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:8mm;margin-bottom:12mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">CERTIFICATES</div>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5mm 8mm;font-size:10.5pt;line-height:1.6;color:var(--ink-2)">
+      <div>정보처리기사</div>
+      <div>SQLD</div>
+      <div>OPIc IM2</div>
+      <div>TOEIC 855</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:30mm minmax(0,1fr);gap:8mm">
+    <div style="border-top:2px solid var(--ink);padding-top:3mm">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:9.4pt;font-weight:700;letter-spacing:.04em;color:var(--acc);white-space:nowrap">EDUCATION</div>
+    </div>
+    <div style="border-top:2px solid var(--ink);padding-top:3mm;display:flex;flex-direction:column;gap:4mm">
+      <div>
+        <div style="display:flex;justify-content:space-between;gap:6mm;align-items:baseline">
+          <div style="font-size:12.5pt;font-weight:700">삼성 청년 SW·AI 아카데미 15기</div>
+          <div style="font-size:11pt;font-weight:600;letter-spacing:-.01em;color:var(--ink-3);white-space:nowrap">2026.01 – 진행 중</div>
+        </div>
+        <p style="margin:1mm 0 0;font-size:12pt;color:var(--ink-2)">Python 트랙</p>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;gap:6mm;align-items:baseline">
+          <div style="font-size:12.5pt;font-weight:700">연세대학교 생물정보학 연구실</div>
+          <div style="font-size:11pt;font-weight:600;letter-spacing:-.01em;color:var(--ink-3);white-space:nowrap">2025.10 – 2025.12</div>
+        </div>
+        <p style="margin:1mm 0 0;font-size:12pt;color:var(--ink-2)">학부연구생</p>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;gap:6mm;align-items:baseline">
+          <div style="font-size:12.5pt;font-weight:700">연세대학교 생화학과 · 컴퓨터과학과 복수전공</div>
+          <div style="font-size:11pt;font-weight:600;letter-spacing:-.01em;color:var(--ink-3);white-space:nowrap">2021.03 – 2026.02</div>
+        </div>
+        <p style="margin:1mm 0 0;font-size:12pt;color:var(--ink-2)">이학사 · 공학사 · <span style="font-family:'IBM Plex Mono',monospace">4.01 / 4.3</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:auto;padding-top:5mm;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:9.75pt;color:var(--ink-3)">
+    <span>PARK GYUWEON · DATA ANALYST</span>
+    <span style="justify-self:center;color:var(--ink);font-weight:600">3 / 3</span>
+    <span></span>
+  </div>
+</section>
+
+</x-import>
+
+</x-dc>
+</body>
+</html>

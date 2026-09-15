@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{--acc:#FE0041;--ink:#111316;--ink-2:#4A4F57;--ink-3:#6A7079;--surf:#F4F4F5;--line:#E4E4E7;--line-2:#D2D3D7;--dark:#0B0C0E;--dark-2:#15171A;--dark-line:rgba(255,255,255,.14);--dark-text:#A9AEB6;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;color:var(--ink)}
+body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+p,li,dd,dt,td,th{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes driftBack{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes wordIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes lineGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes sig{from{transform:translateX(-8px)}to{transform:translateX(calc(100vw + 8px))}}
+@keyframes sigBack{from{transform:translateX(calc(100vw + 8px))}to{transform:translateX(-8px)}}
+@keyframes revealIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes progGrow{from{width:0}to{width:100%}}
+@supports (animation-timeline: view()){[data-reveal]{animation:revealIn linear both;animation-timeline:view();animation-range:entry 0% entry 60%}}
+@supports (animation-timeline: scroll()){#prog{animation:progGrow linear both;animation-timeline:scroll(root block)}}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+
+<div style="overflow-x:hidden">
+
+<div id="prog" style="position:fixed;top:0;left:0;height:2px;width:0;background:var(--acc);z-index:100"></div>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:90;background:rgba(11,12,14,.92);backdrop-filter:saturate(150%) blur(12px);border-bottom:1px solid rgba(255,255,255,.12)" id="nav">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="#top" id="wordmark" style="font-weight:700;font-size:13px;font-weight:600;letter-spacing:.12em;color:#fff;text-decoration:none;white-space:nowrap">PARK GYUWEON<span style="color:var(--acc)">.</span></a>
+    <nav aria-label="주요 메뉴" style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;justify-content:flex-end">
+      <a href="#work" class="navlink" style="font-size:13px;font-weight:500;color:var(--dark-text);text-decoration:none;padding:8px 12px;white-space:nowrap">Work</a>
+      <a href="resume.html" class="navlink" style="font-size:13px;font-weight:500;color:var(--dark-text);text-decoration:none;padding:8px 12px;white-space:nowrap">Resume</a>
+      <a href="https://github.com/ParkGyuweon" target="_blank" rel="noreferrer" class="navlink" style="font-size:13px;font-weight:500;color:var(--dark-text);text-decoration:none;padding:8px 12px;white-space:nowrap">GitHub</a>
+      <a href="#contact" style="font-size:13px;font-weight:600;color:#fff;background:var(--acc);text-decoration:none;padding:9px 16px;margin-left:8px" style-hover="filter:brightness(1.12)">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section id="top" style="position:relative;min-height:90vh;background:var(--dark);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden">
+  <div aria-hidden="true" id="field" style="position:absolute;inset:0;pointer-events:none">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:12px 12px"></div>
+    <div style="position:absolute;top:22%;left:0;right:0;height:4px">
+      <span style="position:absolute;width:4px;height:4px;background:var(--acc);animation:sig 9s linear infinite"></span>
+      <span style="position:absolute;width:4px;height:4px;background:rgba(254,0,65,.5);animation:sig 9s linear infinite -.12s"></span>
+      <span style="position:absolute;width:4px;height:4px;background:rgba(254,0,65,.22);animation:sig 9s linear infinite -.24s"></span>
+    </div>
+    <div style="position:absolute;top:46%;left:0;right:0;height:4px">
+      <span style="position:absolute;width:4px;height:4px;background:rgba(255,255,255,.55);animation:sig 14s linear infinite -3s"></span>
+      <span style="position:absolute;width:4px;height:4px;background:rgba(255,255,255,.28);animation:sig 14s linear infinite -3.14s"></span>
+      <span style="position:absolute;width:4px;height:4px;background:rgba(255,255,255,.12);animation:sig 14s linear infinite -3.28s"></span>
+    </div>
+    <div style="position:absolute;top:70%;left:0;right:0;height:4px">
+      <span style="position:absolute;width:4px;height:4px;background:rgba(255,255,255,.4);animation:sigBack 18s linear infinite"></span>
+      <span style="position:absolute;width:4px;height:4px;background:rgba(255,255,255,.18);animation:sigBack 18s linear infinite -.16s"></span>
+    </div>
+    <div style="position:absolute;top:88%;left:0;right:0;height:4px">
+      <span style="position:absolute;width:4px;height:4px;background:rgba(254,0,65,.7);animation:sig 22s linear infinite -8s"></span>
+      <span style="position:absolute;width:4px;height:4px;background:rgba(254,0,65,.3);animation:sig 22s linear infinite -8.2s"></span>
+    </div>
+  </div>
+
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;padding:180px 28px 0">
+    <div style="font-size:14px;font-weight:700;letter-spacing:.02em;color:var(--acc);margin-bottom:28px;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .05s forwards">DATA ANALYST</div>
+    <h1 style="font-size:clamp(34px,6.4vw,84px);line-height:1.14;letter-spacing:-.045em;font-weight:700;margin:0 0 30px;max-width:26ch">
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .12s forwards">사용자</span>
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .19s forwards">행동을,</span><br>
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .26s forwards">다음</span>
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .33s forwards">판단에</span>
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .40s forwards">쓸</span>
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .47s forwards">수</span>
+      <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .54s forwards">있는</span>
+      <span style="white-space:nowrap"><span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .61s forwards;color:var(--acc)">데이터로</span> <span style="display:inline-block;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .68s forwards">만듭니다.</span></span>
+    </h1>
+    <p style="font-size:16px;line-height:1.85;color:var(--dark-text);max-width:56ch;margin:0 0 56px;opacity:0;animation:wordIn .5s cubic-bezier(.16,1,.3,1) .8s forwards">리뷰 데이터의 표기를 정리하고 holdout을 분리해 평가 조건을 만들었습니다.<br>VLM은 생성 문장을 후처리하지 않고 a/b/c/d logits를 비교하도록 <span style="white-space:nowrap">추론 방식을 바꿨습니다.</span></p>
+  </div>
+
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;padding:0 28px 34px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+    <a href="#work" style="display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.02em">
+      <span style="display:block;width:1px;height:44px;background:var(--acc);transform-origin:top;animation:lineGrow .6s cubic-bezier(.16,1,.3,1) 1s both"></span>
+      <span style="opacity:0;animation:wordIn .5s ease 1.2s forwards">SCROLL TO CASE 01 · HWABUN</span>
+    </a>
+  </div>
+  <div style="height:1px;background:var(--acc)"></div>
+</section>
+
+<section id="work" style="background:var(--dark-2);color:#fff;padding:96px 0 104px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:12px">
+      <h2 style="margin:0;font-weight:700;font-size:13px;font-weight:600;letter-spacing:.18em;color:#fff">PROJECT TRACE</h2>
+      <p style="margin:0;font-size:14px;color:var(--dark-text)">프로젝트마다 데이터 범위, 실패 조건, 평가 방식을 기록했습니다.</p>
+    </div>
+    <div role="tablist" aria-label="프로젝트 선택" style="display:flex;flex-wrap:wrap;gap:28px;border-top:1px solid var(--dark-line);padding-top:18px;margin-bottom:44px">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+        <button type="button" role="tab" onClick="{{ t.onClick }}" aria-selected="{{ t.selected }}" style="cursor:pointer;background:none;border:0;padding:0 0 10px;font-size:clamp(20px,2.6vw,30px);font-weight:700;letter-spacing:-.03em;color:{{ t.fg }};border-bottom:2px solid {{ t.bd }};transition:color .18s,border-color .18s">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="opacity:{{ traceOpacity }};transform:translateX({{ traceShift }});transition:opacity .22s ease,transform .32s cubic-bezier(.16,1,.3,1)">
+      <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:0 1px;background:var(--dark-line);border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line)">
+        <sc-for list="{{ nodes }}" as="n" hint-placeholder-count="5">
+          <div style="flex:1 1 200px;min-width:180px;background:var(--dark-2);padding:26px 22px 28px;display:flex;flex-direction:column;gap:18px">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700;font-size:10.5px;font-weight:600;letter-spacing:.14em;color:var(--dark-text)">
+              <span>{{ n.label }}</span>
+              <span aria-hidden="true" style="display:flex;gap:2px;align-items:center;opacity:{{ n.sepOn }}"><span style="width:3px;height:3px;background:var(--dark-text)"></span><span style="width:3px;height:3px;background:var(--dark-text)"></span><span style="width:3px;height:3px;background:var(--acc)"></span></span>
+            </div>
+            <div style="font-size:clamp(20px,2.2vw,28px);font-weight:700;letter-spacing:-.035em;line-height:1.2;color:{{ n.color }}">{{ n.value }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:22px 0 0;font-size:14px;line-height:1.8;color:var(--dark-text);max-width:66ch">{{ traceNote }}</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;padding:120px 0 40px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px">
+    <div style="flex:0 0 200px">
+      <div data-sticky style="position:sticky;top:104px">
+        <div aria-hidden="true" style="display:flex;gap:3px;margin-bottom:14px"><span style="width:5px;height:5px;background:var(--acc)"></span><span style="width:5px;height:5px;background:var(--acc);opacity:.5"></span><span style="width:5px;height:5px;background:var(--acc);opacity:.22"></span></div>
+        <div style="font-size:clamp(56px,7vw,92px);font-weight:700;letter-spacing:-.05em;color:var(--acc);line-height:.9">01</div>
+        <div style="font-weight:700;font-size:12px;letter-spacing:.14em;margin-top:14px">HWABUN</div>
+        <div style="height:1px;background:var(--line-2);margin:18px 0"></div>
+        <dl style="margin:0;font-size:13px;line-height:1.7">
+          <dt style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)">DOMAIN</dt>
+          <dd style="margin:4px 0 16px;color:var(--ink-2)">스킨케어 추천 · 리뷰 데이터</dd>
+          <dt style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)">MY ROLE</dt>
+          <dd style="margin:4px 0 0;color:var(--ink-2)">추천 데이터 전처리 · 상품·사용자 feature 설계 · 평가용 행동 로그 생성 · offline evaluation 설계</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div style="flex:1 1 560px;min-width:0">
+      <h2 data-reveal style="font-size:clamp(26px,3.6vw,46px);line-height:1.28;letter-spacing:-.04em;font-weight:700;margin:0 0 56px;max-width:20ch">추천 결과를 비교하기 전에 데이터 범위부터 정리했습니다.</h2>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">문제</div>
+        <p style="margin:0;font-size:18px;line-height:1.8;color:var(--ink-2)">원본 리뷰에는 사용자 속성이 비어 있는 행이 있었고, 피부톤 표기는 14종으로 나뉘어 있었습니다. 이대로 집계하면 같은 사용자군이 여러 값으로 나뉘어 평가될 수 있었습니다. 사용자 속성 4개가 모두 채워진 리뷰만 분석 대상에 포함하고, <span style="white-space:nowrap">피부톤 표기를 정리했습니다.</span></p>
+      </div>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">피부톤 14종 → 5개 버킷</div>
+        <p style="margin:0 0 28px;font-size:16px;line-height:1.8;color:var(--ink-2)">흩어진 표기를 5개 버킷으로 정규화해 <span style="white-space:nowrap">집계 단위를 통일했습니다.</span></p>
+        <div style="border-top:1px solid var(--ink);padding-top:22px">
+          <div style="font-weight:700;font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);margin-bottom:12px">14 RAW LABELS</div>
+          <div style="display:flex;gap:4px;align-items:flex-end;height:54px">
+            <sc-for list="{{ toneBars }}" as="b" hint-placeholder-count="14">
+              <div style="flex:1;height:100%;background:{{ b.c }}"></div>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:center;font-size:18px;color:var(--acc);margin:14px 0">↓</div>
+          <div style="font-weight:700;font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);margin-bottom:12px">5 BUCKETS</div>
+          <div style="display:flex;gap:10px;align-items:flex-end;height:54px">
+            <sc-for list="{{ toneBuckets }}" as="b" hint-placeholder-count="5">
+              <div style="flex:1;height:100%;background:{{ b.c }};display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font-weight:700;font-size:10px;color:{{ b.t }}">{{ b.n }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">148차원 상품 벡터</div>
+        <p style="margin:0 0 28px;font-size:16px;line-height:1.8;color:var(--ink-2)">성분, 피부 고민, 카테고리, 브랜드를 담은 <strong style="color:var(--ink)">148차원 상품 벡터</strong>와 사용자 속성 친화도 테이블 4,000행을 분리했습니다. 상품 자체의 유사도와 사용자별 선호도를 다른 기준으로 <span style="white-space:nowrap">계산하기 위해서입니다.</span></p>
+        <div style="display:flex;flex-wrap:wrap;gap:3px;max-width:620px">
+          <sc-for list="{{ featureCells }}" as="f" hint-placeholder-count="48">
+            <div style="width:14px;height:14px;background:{{ f.c }}"></div>
+          </sc-for>
+        </div>
+        <div style="font-weight:700;font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin-top:14px">148 DIMENSIONS · ITEM VECTOR</div>
+      </div>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">holdout을 두 개로 나눈 이유</div>
+        <div style="display:flex;flex-wrap:wrap;gap:1px;background:var(--line-2);border:1px solid var(--line-2)">
+          <div style="flex:1 1 240px;background:#fff;padding:22px 20px">
+            <div style="font-weight:700;font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:10px">HOLDOUT_A · 2,000</div>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:var(--ink-2)">모델과 하이퍼파라미터 선택에 사용</p>
+          </div>
+          <div style="flex:1 1 240px;background:#fff;padding:22px 20px">
+            <div style="font-weight:700;font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);margin-bottom:10px">HOLDOUT_B · 2,000</div>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:var(--ink-2)">선택한 모델을 다시 확인하는 데만 사용</p>
+          </div>
+          <div style="flex:1 1 100%;background:var(--surf);padding:20px">
+            <p style="margin:0;font-size:15px;line-height:1.8;color:var(--ink-2)">평가용 행동 로그에서는 추천 노출 결과와 hidden preference를 분리했습니다. 추천으로 노출된 상품이 다시 정답으로 <span style="white-space:nowrap">사용되지 않도록 하기 위해서입니다.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-bottom:24px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:18px">결과</div>
+        <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;border-top:2px solid var(--ink);padding-top:26px">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink-3);margin-bottom:10px">HOLDOUT_A · RECALL@10</div>
+            <div style="font-size:clamp(38px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1">42.15%</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink-3);margin-bottom:10px">HOLDOUT_B · RECALL@10</div>
+            <div style="font-size:clamp(38px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1">43.15%</div>
+          </div>
+        </div>
+        <p style="margin:22px 0 0;font-size:15px;line-height:1.8;color:var(--ink-2);max-width:60ch">CBF + CF + LTR 결합 모델의 결과입니다. <strong style="color:var(--ink)">데이터 범위와 검증 구조 설계</strong>를 담당했습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:1px;background:var(--acc)"></div>
+
+<section style="background:var(--dark);color:#fff;padding:120px 0 40px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px">
+    <div style="flex:0 0 200px">
+      <div style="position:sticky;top:104px">
+        <div aria-hidden="true" style="display:flex;gap:3px;margin-bottom:14px"><span style="width:5px;height:5px;background:var(--acc)"></span><span style="width:5px;height:5px;background:var(--acc);opacity:.5"></span><span style="width:5px;height:5px;background:var(--acc);opacity:.22"></span></div>
+        <div style="font-size:clamp(56px,7vw,92px);font-weight:700;letter-spacing:-.05em;color:var(--acc);line-height:.9">02</div>
+        <div style="font-weight:700;font-size:12px;letter-spacing:.14em;margin-top:14px">AI CHALLENGE</div>
+        <div style="height:1px;background:var(--dark-line);margin:18px 0"></div>
+        <dl style="margin:0;font-size:13px;line-height:1.7">
+          <dt style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--dark-text)">DOMAIN</dt>
+          <dd style="margin:4px 0 16px;color:var(--dark-text)">VLM 파인튜닝 · 추론 출력 검증</dd>
+          <dt style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--dark-text)">MY ROLE</dt>
+          <dd style="margin:4px 0 0;color:var(--dark-text)">3인 팀의 VLM 파인튜닝 및 추론 파이프라인 담당</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div style="flex:1 1 560px;min-width:0">
+      <h2 data-reveal style="font-size:clamp(26px,3.6vw,46px);line-height:1.28;letter-spacing:-.04em;font-weight:700;margin:0 0 56px;max-width:20ch">생성 결과를 후처리하지 않도록 추론 방식을 바꿨습니다.</h2>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">문제</div>
+        <p style="margin:0;font-size:18px;line-height:1.8;color:var(--dark-text)">InternVL2-8B를 4-bit QLoRA로 학습하고 정답 토큰에만 loss가 계산되도록 label masking을 구성했습니다. 평가 단계에서는 모델이 생성한 문장에서 답을 다시 추출해야 했습니다. 문장 형식이 달라지면 정답이 맞아도 <span style="white-space:nowrap">파싱이 실패했습니다.</span></p>
+      </div>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">a / b / c / d logits 직접 비교</div>
+        <p style="margin:0 0 30px;font-size:16px;line-height:1.8;color:var(--dark-text)">문장을 생성한 뒤 답을 추출하는 대신, 네 선택지 토큰의 logits를 직접 비교하도록 추론 방식을 바꿨습니다. 결과는 항상 a, b, c, d 중 <span style="white-space:nowrap">하나로 결정됩니다.</span></p>
+        <div style="border-top:1px solid var(--dark-line);padding-top:26px;display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ logitBars }}" as="l" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:16px">
+              <span style="font-weight:700;font-size:13px;font-weight:600;width:18px;flex:none;color:{{ l.fg }}">{{ l.k }}</span>
+              <div style="flex:1;min-width:0;height:18px;background:rgba(255,255,255,.07)"><div style="width:{{ l.w }};height:100%;background:{{ l.bar }}"></div></div>
+              <span style="font-weight:700;font-size:10.5px;letter-spacing:.1em;width:72px;flex:none;text-align:right;color:{{ l.fg }}">{{ l.tag }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:16px 0 0;font-size:12.5px;line-height:1.7;color:var(--dark-text)">비교 막대는 방식 설명을 위한 도식이며 실제 logits 값은 아닙니다.</p>
+      </div>
+
+      <div data-reveal>
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:18px">결과</div>
+        <div style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;border-top:2px solid #fff;padding-top:26px">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--dark-text);margin-bottom:10px">PARSING ERRORS</div>
+            <div style="font-size:clamp(38px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--acc)">0</div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--dark-text);margin-bottom:10px">INFERENCE SPEED</div>
+            <div style="font-size:clamp(38px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1">약 2배</div>
+          </div>
+        </div>
+              </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:1px;background:var(--acc)"></div>
+
+<section style="background:#fff;padding:120px 0 40px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px">
+    <div style="flex:0 0 200px">
+      <div style="position:sticky;top:104px">
+        <div aria-hidden="true" style="display:flex;gap:3px;margin-bottom:14px"><span style="width:5px;height:5px;background:var(--acc)"></span><span style="width:5px;height:5px;background:var(--acc);opacity:.5"></span><span style="width:5px;height:5px;background:var(--acc);opacity:.22"></span></div>
+        <div style="font-size:clamp(56px,7vw,92px);font-weight:700;letter-spacing:-.05em;color:var(--acc);line-height:.9">03</div>
+        <div style="font-weight:700;font-size:12px;letter-spacing:.14em;margin-top:14px">빵긋</div>
+        <div style="height:1px;background:var(--line-2);margin:18px 0"></div>
+        <dl style="margin:0;font-size:13px;line-height:1.7">
+          <dt style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)">DOMAIN</dt>
+          <dd style="margin:4px 0 16px;color:var(--ink-2)">아동 동작 인식 게임</dd>
+          <dt style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--ink-3)">MY ROLE</dt>
+          <dd style="margin:4px 0 0;color:var(--ink-2)">React·TypeScript 프론트엔드 · MediaPipe 동작 인식 · 게임 QA</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div style="flex:1 1 560px;min-width:0">
+      <h2 data-reveal style="font-size:clamp(26px,3.6vw,46px);line-height:1.28;letter-spacing:-.04em;font-weight:700;margin:0 0 56px;max-width:20ch">실패한 동작을 기준으로 판정 범위를 조정했습니다.</h2>
+
+      <div data-reveal style="margin-bottom:64px">
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:14px">판정 범위를 넓힌 과정</div>
+        <p style="margin:0 0 32px;font-size:18px;line-height:1.8;color:var(--ink-2)">손 중심 좌표만 사용하는 방식은 아동의 큰 동작을 놓쳤습니다. 개발 영상에서 실패한 장면을 확인한 뒤, 손의 가장자리와 팔 영역까지 활용하도록 조건을 조정했습니다. 이후 같은 조건에서 <span style="white-space:nowrap">반복 QA를 진행했습니다.</span></p>
+        <div style="border-top:1px solid var(--ink);padding-top:28px;display:flex;flex-direction:column;gap:12px">
+          <sc-for list="{{ rangeBars }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:16px">
+              <span style="font-weight:700;font-size:10.5px;letter-spacing:.12em;width:56px;flex:none;color:var(--ink-3)">{{ r.k }}</span>
+              <div style="height:26px;width:{{ r.w }};background:{{ r.c }};display:flex;align-items:center;padding-left:12px;font-size:12.5px;font-weight:600;color:{{ r.t }}">{{ r.label }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:18px">결과</div>
+        <div style="border-top:2px solid var(--ink);padding-top:26px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--ink-3);margin-bottom:10px">RECOGNITION · 개발 영상 반복 QA 기준</div>
+          <div style="font-size:clamp(38px,5vw,64px);font-weight:700;letter-spacing:-.04em;line-height:1">10% → 90%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surf);padding:88px 0;margin-top:120px;border-top:1px solid var(--line-2)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:56px">
+    <div style="flex:0 0 200px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--ink-3)">APPENDIX</div>
+      <div style="font-size:15px;font-weight:700;letter-spacing:-.01em;margin-top:8px">논문 수집 Agent</div>
+    </div>
+    <div style="flex:1 1 560px;min-width:0" data-reveal>
+      <h3 style="font-size:clamp(20px,2.4vw,28px);line-height:1.4;letter-spacing:-.03em;font-weight:700;margin:0 0 18px;max-width:24ch">반복 수집 문제를 줄이기 위해 LLM 응답 형식과 이력 파일을 함께 관리했습니다.</h3>
+      <p style="margin:0 0 20px;font-size:16px;line-height:1.85;color:var(--ink-2);max-width:66ch">연세대학교 생물정보학 연구실 학부연구생으로 AI Scientist와 biomedical AI agent 관련 논문·코드를 분석했습니다. LangChain, Gemini, arXiv API로 논문 수집 Agent를 구현했고, 관련성 판정은 YES/NO 형식으로 제한했습니다. 수집한 논문 ID는 history 파일에 저장해 <span style="white-space:nowrap">다음 검색에서 제외했습니다.</span></p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:13px;font-weight:600;padding:6px 11px;border:1px solid var(--line-2);color:var(--ink-2)">LangChain</span>
+        <span style="font-size:13px;font-weight:600;padding:6px 11px;border:1px solid var(--line-2);color:var(--ink-2)">Gemini</span>
+        <span style="font-size:13px;font-weight:600;padding:6px 11px;border:1px solid var(--line-2);color:var(--ink-2)">arXiv API</span>
+        <span style="font-size:13px;font-weight:600;padding:6px 11px;border:1px solid var(--line-2);color:var(--ink-2)">YES/NO response format</span>
+        <span style="font-size:13px;font-weight:600;padding:6px 11px;border:1px solid var(--line-2);color:var(--ink-2)">history file</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--dark);color:#fff;padding:112px 0 56px">
+  <div style="max-width:1280px;margin:0 auto;padding:0 28px">
+    <div style="display:flex;flex-wrap:wrap;gap:56px;justify-content:space-between;align-items:flex-start">
+      <div style="flex:1 1 420px;min-width:0">
+        <div style="font-size:14px;font-weight:700;letter-spacing:.02em;color:var(--acc);margin-bottom:18px">CONTACT</div>
+      </div>
+      <div style="flex:0 1 340px">
+        <dl style="margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 24px;font-size:14.5px;align-items:baseline">
+          <dt style="font-weight:700;font-size:10.5px;letter-spacing:.12em;color:var(--dark-text)">EMAIL</dt>
+          <dd style="margin:0"><a href="mailto:rbdnjs7034@naver.com" style="color:#fff">rbdnjs7034@naver.com</a></dd>
+          <dt style="font-weight:700;font-size:10.5px;letter-spacing:.12em;color:var(--dark-text)">PHONE</dt>
+          <dd style="margin:0;color:var(--dark-text)">010-2235-3134</dd>
+          <dt style="font-weight:700;font-size:10.5px;letter-spacing:.12em;color:var(--dark-text)">GITHUB</dt>
+          <dd style="margin:0"><a href="https://github.com/ParkGyuweon" target="_blank" rel="noreferrer" style="color:#fff">github.com/ParkGyuweon</a></dd>
+        </dl>
+      </div>
+    </div>
+    <div style="height:1px;background:var(--dark-line);margin:64px 0 22px"></div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;font-weight:500;letter-spacing:.01em;color:var(--dark-text)">
+      <span>PARK GYUWEON · DATA ANALYST</span>
+      <span>PORTFOLIO · 2026</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FE0041&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FE0041&quot;,&quot;#111316&quot;,&quot;#FF5A1F&quot;,&quot;#00A37A&quot;],&quot;section&quot;:&quot;브랜드&quot;}}">
+const TRACES = [
+  {
+    tab: 'HWABUN',
+    note: '상품 속성과 사용자 선호도를 분리하고, holdout으로 선택과 확인을 나눴습니다.',
+    nodes: [
+      ['RAW REVIEWS', '844,865'],
+      ['NORMALIZE', '14 → 5'],
+      ['FEATURE SPLIT', '148D'],
+      ['HOLDOUT', '2,000 × 2'],
+      ['VERIFY', '42.15 / 43.15%', true]
+    ]
+  },
+  {
+    tab: 'AI Challenge',
+    note: '생성 문장을 다시 파싱하지 않고, 정답 토큰의 logits를 직접 비교하도록 추론 구조를 바꿨습니다.',
+    nodes: [
+      ['VLM OUTPUT', 'InternVL2-8B'],
+      ['LABEL MASKING', 'answer token'],
+      ['LOGIT COMPARISON', 'a / b / c / d'],
+      ['PARSE FAILURE', '0', true],
+      ['SPEED', '약 2배', true]
+    ]
+  },
+  {
+    tab: '빵긋',
+    note: '실제 플레이에서 놓치는 동작을 확인하고, 손 중심 좌표에 머물던 판정 범위를 조정했습니다.',
+    nodes: [
+      ['PLAY VIDEO', 'failure observed'],
+      ['INPUT RANGE', 'palm → arm'],
+      ['REPEAT QA', 'same condition'],
+      ['RECOGNITION', '10% → 90%', true]
+    ]
+  }
+];
+
+const TONE_RAMP = ['#F2E9E1','#EADBCE','#E2CDBA','#D8BCA3','#CCA989','#C09A79','#B08662','#9F7551','#8E6543','#7C5537','#6B472D','#5A3A25','#492E1D','#3A2416'];
+const BUCKETS = ['#EFE2D6','#D6BCA1','#B6906E','#8A6144','#553524'];
+
+class Component extends DCLogic {
+  state = { active: 0, fading: false };
+
+  componentDidMount() {
+    this.applyAccent();
+    this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  componentDidUpdate() { this.applyAccent(); }
+  componentWillUnmount() {
+    if (this.t) clearTimeout(this.t);
+  }
+
+  applyAccent() {
+    const a = this.props.accentColor;
+    if (a) document.documentElement.style.setProperty('--acc', a);
+  }
+
+  select(i) {
+    if (i === this.state.active) return;
+    if (this.reduce) { this.setState({ active: i }); return; }
+    this.dir = i > this.state.active ? 1 : -1;
+    this.setState({ fading: true });
+    if (this.t) clearTimeout(this.t);
+    this.t = setTimeout(() => this.setState({ active: i, fading: false }), 200);
+  }
+
+  renderVals() {
+    const active = this.state.active;
+    const trace = TRACES[active];
+    const cells = [];
+    for (let i = 0; i < 148; i++) {
+      const g = i % 4 === 0 ? 'var(--acc)' : (i % 3 === 0 ? 'var(--ink)' : (i % 2 === 0 ? '#B9BCC2' : 'var(--line)'));
+      cells.push({ c: g });
+    }
+    return {
+      traceNote: trace.note,
+      traceOpacity: this.state.fading ? 0 : 1,
+      traceShift: this.state.fading ? (this.dir === 1 ? '-24px' : '24px') : '0px',
+      nodes: trace.nodes.map((n, i) => ({
+        label: n[0],
+        value: n[1],
+        color: n[2] ? 'var(--acc)' : '#fff',
+        sepOn: i === trace.nodes.length - 1 ? 0 : 1
+      })),
+      tabs: TRACES.map((t, i) => ({
+        label: t.tab,
+        selected: i === active ? 'true' : 'false',
+        fg: i === active ? '#fff' : 'rgba(255,255,255,.38)',
+        bd: i === active ? 'var(--acc)' : 'transparent',
+        onClick: () => this.select(i)
+      })),
+      toneBars: TONE_RAMP.map(c => ({ c })),
+      toneBuckets: BUCKETS.map((c, i) => ({ c, n: String(i + 1), t: i > 2 ? '#fff' : 'var(--ink)' })),
+      featureCells: cells,
+      logitBars: [
+        { k: 'a', w: '38%', bar: 'rgba(255,255,255,.22)', fg: 'var(--dark-text)', tag: '' },
+        { k: 'b', w: '86%', bar: 'var(--acc)', fg: '#fff', tag: 'SELECTED' },
+        { k: 'c', w: '24%', bar: 'rgba(255,255,255,.22)', fg: 'var(--dark-text)', tag: '' },
+        { k: 'd', w: '51%', bar: 'rgba(255,255,255,.22)', fg: 'var(--dark-text)', tag: '' }
+      ],
+      rangeBars: [
+        { k: 'BEFORE', w: '32%', c: 'var(--line)', t: 'var(--ink-2)', label: '손 중심 좌표' },
+        { k: 'STEP 2', w: '62%', c: '#B9BCC2', t: 'var(--ink)', label: '+ 손 가장자리' },
+        { k: 'AFTER', w: '100%', c: 'var(--acc)', t: '#fff', label: '+ 팔 영역' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
